@@ -15,6 +15,8 @@ TO DO:
 	-so viele wolken am anfang instantiaten dass man nicht sieht wenn neue erscheinen
 	(wolken nur über dem sichtfeld erzeugen)
 
+	-wenn bestimmte höhe erreicht, wolken bewegen lassen um schwierigkeitsgrad zu erhöhen
+
 
   -environment:
 
