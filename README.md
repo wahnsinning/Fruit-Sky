@@ -8,6 +8,7 @@ TO DO:
 Priorität:
 
   -player 1 und 2 script:
+  
 	-neue wolke instatiaten nur wenn player über anderem player ist
 	(sonst werden 2 wolken auf gleicher höhe erzeugt)j
 
