@@ -5,8 +5,6 @@ hallo dana und zoe :)
 
 TO DO:
 
-Priorität:
-
   -player 1 und 2 script:
   
 	-neue wolke instatiaten nur wenn player über anderem player ist
@@ -28,7 +26,7 @@ Priorität:
 	ggf vergrößern und nach hinten ziehen und 
 	nebel über die schnittstelle mit dem boden legen (später boden unsichtbar machen) 
 
-Nebensächlich:
+-nebensächlich:
 
 	-gute player textur finden
 	
