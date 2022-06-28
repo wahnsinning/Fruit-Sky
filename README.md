@@ -1,6 +1,4 @@
 # doodle-jump
-jumping game
-
 hallo dana und zoe :)
 
 TO DO:
