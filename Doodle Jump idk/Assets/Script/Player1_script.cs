@@ -13,10 +13,10 @@ public class Player1_script : MonoBehaviour
     private Rigidbody RB;
     
     // -- time delay -- 
-    private float _coolDownTimeJump = 2f;
+    private float _coolDownTimeJump = 1f;
     private float _nextJumpTime = 0f;
 
-    public float progress_y=0;
+    public float progress_y=10;
     
     // Start is called before the first frame update
     void Start()
