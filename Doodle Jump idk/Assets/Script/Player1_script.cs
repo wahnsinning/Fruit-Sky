@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Player1_script : MonoBehaviour
 {
     [SerializeField] private GameObject Cloud_prefab;
+    [SerializeField] private GameObject Melone_prefab;
     // VARIABLES
     [SerializeField]
     private float _speed = 5f;
@@ -16,7 +18,11 @@ public class Player1_script : MonoBehaviour
     private float _coolDownTimeJump = 1f;
     private float _nextJumpTime = 0f;
 
-    public float progress_y=10;
+    private bool melonenlock = false;
+
+    public float steps_height = 0;
+
+    public int NumberOfMelons { get; private set; }
     
     // Start is called before the first frame update
     void Start()
@@ -28,6 +34,7 @@ public class Player1_script : MonoBehaviour
     void Update()
     {
         PlayerMovement();
+        scoreManager.instance.changeHeight((int)transform.position.y+3);
 
     }
     void PlayerMovement()
@@ -52,15 +59,33 @@ public class Player1_script : MonoBehaviour
             }
             
             //TELEPORT BACK TO START WHEN FALLING
-            if (transform.position.y < -10)
+            if (transform.position.y < -20)
             {
                 transform.position = new Vector3(0f, 0f, 0f);
             }
             //Neue Wolke
-            if (transform.position.y > progress_y)
+            if (transform.position.y > steps_height)
             {
-            Instantiate(Cloud_prefab, new Vector3(Random.Range(-5, 10), progress_y, 0), Quaternion.identity);
-            progress_y = progress_y + 4;
+            Instantiate(Cloud_prefab, new Vector3(Random.Range(-15, 15), steps_height, 0), Quaternion.identity);
+            steps_height = steps_height + 4;
             }
+
+            //Melonen erzeugen
+            if (steps_height % 10 == 0 && melonenlock == false )
+            {
+                Instantiate(Melone_prefab, new Vector3(Random.Range(-15, 15), steps_height+2f, 0f), Quaternion.identity);
+                
+                melonenlock = true;
+            }
+
+            if (steps_height % 10 != 0)
+            {
+            melonenlock = false;
+            }
+
+    }
+    public void MelonCollected()
+    {
+        NumberOfMelons++;
     }
 }
