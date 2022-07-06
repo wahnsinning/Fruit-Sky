@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
-public class Player1_script : MonoBehaviour
+public class Player1_script : MonoBehaviour 
 {
     [SerializeField] private GameObject Cloud_prefab;
     [SerializeField] private GameObject Melone_prefab;
@@ -13,23 +14,29 @@ public class Player1_script : MonoBehaviour
     [SerializeField]
     private float _speed = 5f;
     private float _jumpingSpeed = 10f;
-    [SerializeField]
-    private Rigidbody RB;
+    [SerializeField]private Rigidbody RB;
     
     // -- time delay -- 
     private float _coolDownTimeJump = 1f;
     private float _nextJumpTime = 0f;
 
+    private int xPos = 0;
     private bool melonenlock = false;
 
     public float steps_height = 0;
 
     public int NumberOfMelons { get; private set; }
+
     
+
     // Start is called before the first frame update
     void Start()
     {
         transform.position = new Vector3(x:1f, y:0f, z:0f);
+        Instantiate(Cloud_prefab, new Vector3(Random.Range(-15, 15), 0, 0), Quaternion.identity);
+        Instantiate(Cloud_prefab, new Vector3(Random.Range(-15, 15), 4, 0), Quaternion.identity);
+        Instantiate(Cloud_prefab, new Vector3(Random.Range(-15, 15), 8, 0), Quaternion.identity);
+        Instantiate(Cloud_prefab, new Vector3(Random.Range(-15, 15), 12, 0), Quaternion.identity);
     }
 
     // Update is called once per frame
@@ -64,7 +71,20 @@ public class Player1_script : MonoBehaviour
         //TELEPORT BACK TO START WHEN FALLING
         if (transform.position.y < -20)
         {
-            transform.position = new Vector3(0f, 0f, 0f);
+            SceneManager.LoadScene(sceneName: "Game Over");
+        }
+
+        //PAUSE
+        if (Input.GetKeyDown("p"))
+        {
+            PauseGame();
+            SceneManager.LoadScene(sceneName: "Pause Menu");
+        }
+
+        //RESUME
+        if(Input.GetKeyDown("r"))
+        {
+            ResumeGame();
         }
     }
 
@@ -73,38 +93,52 @@ public class Player1_script : MonoBehaviour
         //Neue Wolke
         if (transform.position.y > steps_height)
         {
-        Instantiate(Cloud_prefab, new Vector3(Random.Range(-15, 15), steps_height, 0), Quaternion.identity);
-        steps_height = steps_height + 4;
+            xPos = Random.Range(-15, 15);
+
+            Instantiate(Cloud_prefab, new Vector3(xPos, steps_height+ 16, 0), Quaternion.identity);
+            steps_height = steps_height + 4;
+
+            //Frï¿½chte erzeugen
+            if (steps_height % 10 == 0 && melonenlock == false)
+            {
+                int fruitNr = Random.Range(0, 3);
+
+
+                if (fruitNr == 0)
+                {
+                    Instantiate(Melone_prefab, new Vector3(xPos, steps_height + 14f, 0f), Quaternion.identity);
+                    melonenlock = true;
+                }
+                if (fruitNr == 1)
+                {
+                    Instantiate(Pfirsich_prefab, new Vector3(xPos, steps_height + 14f, 0f), Quaternion.identity);
+                    melonenlock = true;
+                }
+                if (fruitNr == 2)
+                {
+                    Instantiate(Blaubeeren_prefab, new Vector3(xPos, steps_height + 14f, 0f), Quaternion.identity);
+                    melonenlock = true;
+                }
+
+            }
         }
 
-        //Früchte erzeugen
-        if (steps_height % 10 == 0 && melonenlock == false )
-        {
-        int x = Random.Range(0, 3);
-
-            if(x==0)
-            {
-                Instantiate(Melone_prefab, new Vector3(Random.Range(-15, 15), steps_height+2f, 0f), Quaternion.identity);
-                melonenlock = true;
-            }
-            if (x == 1)
-            {
-                Instantiate(Pfirsich_prefab, new Vector3(Random.Range(-15, 15), steps_height + 2f, 0f), Quaternion.identity);
-                melonenlock = true;
-            }
-            if (x == 2)
-            {
-                Instantiate(Blaubeeren_prefab, new Vector3(Random.Range(-15, 15), steps_height + 2f, 0f), Quaternion.identity);
-                melonenlock = true;
-            }
-
-        }
+        
 
         if (steps_height % 10 != 0)
         {
             melonenlock = false;
         }
 
+    }
+
+    private void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+    private void ResumeGame()
+    {
+        Time.timeScale = 1;
     }
 
     public void MelonCollected()

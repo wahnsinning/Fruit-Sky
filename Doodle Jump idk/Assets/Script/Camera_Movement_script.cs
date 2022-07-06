@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
- 
+using UnityEngine.UI;
+
 [RequireComponent(typeof(Camera))]
 public class Camera_Movement_script : MonoBehaviour
 {
+
     //2 targets are needed because there are two players
     public List<Transform> targets;
     public Vector3 offset;
-    
-        
+
     private void Start()
     {
         offset = transform.position - targets[0].position; 
@@ -33,6 +34,11 @@ public class Camera_Movement_script : MonoBehaviour
                 transform.position = offset + new Vector3(0f, targets[1].position.y, 0f);
             }
         }
+    }
+
+    public void PauseSound()
+    {
+        GetComponent<AudioSource>().Pause();
     }
 
 }
