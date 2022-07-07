@@ -5,16 +5,14 @@ TO DO:
 
   -player 1 und 2 script:
   
-	-neue wolke instatiaten nur wenn player über anderem player ist
-		(sonst werden 2 wolken auf gleicher höhe erzeugt)j
+	
 	
 	-wolken unten durchlässig machen, oben aber nicht
 		oder wolke muss einen gewissen x abstand zu der darunterliegenden wolke haben, 
 		damit der untere player eine chance hat.(direkt übereinanderliegende wolken 
 		sind eine unüberwindbare barriere für den unteren spieler) 
 
-	-so viele wolken am anfang instantiaten dass man nicht sieht wenn neue erscheinen
-		(wolken nur über dem sichtfeld erzeugen)
+
 
 
   -environment:
@@ -27,7 +25,7 @@ TO DO:
 
 	-evtl jumping sound
 
-	-optionen einrichten(lautstärke, vielleicht schwierigkeit(wolkengröße kleiner=schwieriger),stats)
+	-optionen einrichten(lautstärke,stats,credits)
 
 	-evtl wolken auf höhe des oberen bildrandes der hintergrundbilder erzeugen (particle system), 
 	dann neue hintergrundbilder im space-style darüber legen (falls hdri map nicht klappt)
