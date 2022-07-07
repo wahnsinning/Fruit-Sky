@@ -22,7 +22,7 @@ public class scoreManager : MonoBehaviour
     string flag = "";
     int melons = 0;
     int height = 0;
-    int highscore = 0;
+    public int highscore = 0;
     // Start is called before the first frame update
     void Start()
     {

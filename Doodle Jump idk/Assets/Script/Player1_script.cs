@@ -10,6 +10,9 @@ public class Player1_script : MonoBehaviour
     [SerializeField] private GameObject Melone_prefab;
     [SerializeField] private GameObject Pfirsich_prefab;
     [SerializeField] private GameObject Blaubeeren_prefab;
+
+    public GameObject Game_Over_Screen;
+    
     // VARIABLES
     [SerializeField]
     private float _speed = 5f;
@@ -28,11 +31,12 @@ public class Player1_script : MonoBehaviour
     public int NumberOfMelons { get; private set; }
 
     
-
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         transform.position = new Vector3(x:1f, y:0f, z:0f);
+        Game_Over_Screen.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -42,6 +46,7 @@ public class Player1_script : MonoBehaviour
         Objects();
         scoreManager.instance.changeHeight((int)transform.position.y+3);
         scoreManager.instance.setHighscore((int)transform.position.y +3);
+        GO_score.instance.getYourScore();
 
     }
     void PlayerMovement()
@@ -68,7 +73,11 @@ public class Player1_script : MonoBehaviour
         //TELEPORT BACK TO START WHEN FALLING
         if (transform.position.y < -20)
         {
-            SceneManager.LoadScene(sceneName: "Game Over");
+            //SceneManager.LoadScene(sceneName: "Game Over");
+            Time.timeScale = 0;
+            Game_Over_Screen.gameObject.SetActive(true);
+            //SceneManager.LoadScene(sceneName: "Main Menu");
+
         }
 
         //PAUSE

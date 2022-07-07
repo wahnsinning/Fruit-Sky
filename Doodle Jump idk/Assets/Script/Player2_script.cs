@@ -10,7 +10,7 @@ public class Player2_script : MonoBehaviour
     private float _jumpingSpeed = 10f;
     [SerializeField]
     private Rigidbody RB;
-    
+
     // -- time delay -- 
     private float _coolDownTimeJump = 2f;
     private float _nextJumpTime = 0f;
@@ -18,7 +18,7 @@ public class Player2_script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(x:-1f, y:0f, z:0f);
+        transform.position = new Vector3(x: -1f, y: 0f, z: 0f);
     }
 
     // Update is called once per frame
@@ -26,7 +26,7 @@ public class Player2_script : MonoBehaviour
     {
         PlayerMovement();
     }
-    
+
     void PlayerMovement()
     {
         // MOVEMENT
@@ -40,14 +40,14 @@ public class Player2_script : MonoBehaviour
             RB.velocity += new Vector3(-_speed, 0f, 0f);
             //transform.Translate(Vector3.right * Time.deltaTime * _speed *1);
         }
-            
+
         // JUMPING
         if (Input.GetKeyDown("w") && _nextJumpTime < Time.time)
         {
             RB.velocity += new Vector3(0f, _jumpingSpeed, 0f);
             _nextJumpTime = Time.time + _coolDownTimeJump;
         }
-            
+
         //TELEPORT BACK TO START WHEN FALLING
         if (transform.position.y < -10)
         {
