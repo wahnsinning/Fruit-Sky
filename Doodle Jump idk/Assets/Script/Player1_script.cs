@@ -33,10 +33,6 @@ public class Player1_script : MonoBehaviour
     void Start()
     {
         transform.position = new Vector3(x:1f, y:0f, z:0f);
-        Instantiate(Cloud_prefab, new Vector3(Random.Range(-15, 15), 0, 0), Quaternion.identity);
-        Instantiate(Cloud_prefab, new Vector3(Random.Range(-15, 15), 4, 0), Quaternion.identity);
-        Instantiate(Cloud_prefab, new Vector3(Random.Range(-15, 15), 8, 0), Quaternion.identity);
-        Instantiate(Cloud_prefab, new Vector3(Random.Range(-15, 15), 12, 0), Quaternion.identity);
     }
 
     // Update is called once per frame
@@ -45,6 +41,7 @@ public class Player1_script : MonoBehaviour
         PlayerMovement();
         Objects();
         scoreManager.instance.changeHeight((int)transform.position.y+3);
+        scoreManager.instance.setHighscore((int)transform.position.y +3);
 
     }
     void PlayerMovement()
