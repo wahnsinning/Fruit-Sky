@@ -358,6 +358,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Script/Camera_Movement_script.cs"
 "Assets/Script/Cloud_Timer.cs"
+"Assets/Script/exit_game.cs"
 "Assets/Script/fruit.cs"
 "Assets/Script/GO_score.cs"
 "Assets/Script/Player1_script.cs"

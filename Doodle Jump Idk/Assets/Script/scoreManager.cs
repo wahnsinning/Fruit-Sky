@@ -12,6 +12,7 @@ public class scoreManager : MonoBehaviour
     public TMP_Text highscoreText;
     public TMP_Text scoreText;
     public TMP_Text heightText;
+    public TMP_Text yourScoreText;
     public TMP_Text FLAG;// testing purposes: insert "scoreManager.instance.raiseFlag();" to be notified when something happens
 
     private void Awake()
@@ -22,7 +23,9 @@ public class scoreManager : MonoBehaviour
     string flag = "";
     int melons = 0;
     int height = 0;
-    public int highscore = 0;
+    public static int highscore = 0;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +59,8 @@ public class scoreManager : MonoBehaviour
         }
         highscoreText.text = "Highscore: " + highscore.ToString() + " m";
     }
+
+    
     // Update is called once per frame
     void Update()
     {

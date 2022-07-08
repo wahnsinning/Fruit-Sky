@@ -4,7 +4,11 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - Cloud_1: {fileID: 100000, guid: 5cde7e041e3442f48920017d63ab306e, type: 3}
+  - Cloud_prefab: {fileID: 6293433405184118389, guid: 0b1af15caa1454ac1be856c4cc9ca55d, type: 3}
+  - Melone_prefab: {fileID: 5233896782128346146, guid: 419b2847f7395e740838ca0df7d54404, type: 3}
+  - Pfirsich_prefab: {fileID: 5233896782128346146, guid: 21eca365d37f0c749b098bdb4fc3b658, type: 3}
+  - Blaubeeren_prefab: {fileID: 5233896782128346146, guid: 228058fca1d191b46bb9dbf7a310c5be, type: 3}
+  - Game_Over_Screen: {instanceID: 0}
   - RB: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}

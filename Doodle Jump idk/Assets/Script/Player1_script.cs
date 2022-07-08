@@ -11,8 +11,10 @@ public class Player1_script : MonoBehaviour
     [SerializeField] private GameObject Pfirsich_prefab;
     [SerializeField] private GameObject Blaubeeren_prefab;
 
+    //Sreen Layers 
     public GameObject Game_Over_Screen;
-    
+    public GameObject Pause_Screen;
+
     // VARIABLES
     [SerializeField]
     private float _speed = 5f;
@@ -37,6 +39,7 @@ public class Player1_script : MonoBehaviour
         Time.timeScale = 1;
         transform.position = new Vector3(x:1f, y:0f, z:0f);
         Game_Over_Screen.gameObject.SetActive(false);
+        Pause_Screen.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -47,6 +50,7 @@ public class Player1_script : MonoBehaviour
         scoreManager.instance.changeHeight((int)transform.position.y+3);
         scoreManager.instance.setHighscore((int)transform.position.y +3);
         GO_score.instance.getYourScore();
+
 
     }
     void PlayerMovement()
@@ -70,27 +74,25 @@ public class Player1_script : MonoBehaviour
             _nextJumpTime = Time.time + _coolDownTimeJump;
         }
 
-        //TELEPORT BACK TO START WHEN FALLING
-        if (transform.position.y < -20)
+        //Falling too deep
+        if (transform.position.y < -13)
         {
-            //SceneManager.LoadScene(sceneName: "Game Over");
             Time.timeScale = 0;
             Game_Over_Screen.gameObject.SetActive(true);
-            //SceneManager.LoadScene(sceneName: "Main Menu");
-
         }
 
         //PAUSE
         if (Input.GetKeyDown("p"))
         {
             PauseGame();
-            SceneManager.LoadScene(sceneName: "Pause Menu");
+            Pause_Screen.gameObject.SetActive(true);
         }
 
         //RESUME
         if(Input.GetKeyDown("r"))
         {
             ResumeGame();
+            Pause_Screen.gameObject.SetActive(false);
         }
     }
 
@@ -142,6 +144,7 @@ public class Player1_script : MonoBehaviour
     {
         Time.timeScale = 0;
     }
+
     private void ResumeGame()
     {
         Time.timeScale = 1;
@@ -151,4 +154,5 @@ public class Player1_script : MonoBehaviour
     {
         NumberOfMelons++;
     }
+    
 }

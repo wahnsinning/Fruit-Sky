@@ -2,8 +2,9 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - Camera_Movement_script
+    - Cloud_Timer
+    - GO_score
     - Player1_script
-    - Player2_script
     - SceneLoader
     - fruit
     - scoreManager
@@ -64,69 +65,26 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: SceneLoader
     methodName: LoadScene
+  - assembly: Assembly-CSharp
+    fullTypeName: SceneLoader
+    methodName: QuitGame
+  - assembly: Assembly-CSharp
+    fullTypeName: SceneLoader
+    methodName: ResumeGame
+  - assembly: Assembly-CSharp
+    fullTypeName: SceneLoader
+    methodName: LoadScene
+  - assembly: Assembly-CSharp
+    fullTypeName: SceneLoader
+    methodName: LoadScene
+  - assembly: Assembly-CSharp
+    fullTypeName: SceneLoader
+    methodName: LoadScene
+  - assembly: Assembly-CSharp
+    fullTypeName: SceneLoader
+    methodName: LoadScene
   sceneClasses:
-    Assets/Scenes/Main Menu.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 49
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 1596}
-    - Class: 114
-      Script: {instanceID: 2222}
-    - Class: 114
-      Script: {instanceID: 2530}
-    - Class: 114
-      Script: {instanceID: 2662}
-    - Class: 114
-      Script: {instanceID: 2888}
-    - Class: 114
-      Script: {instanceID: 3190}
-    - Class: 114
-      Script: {instanceID: 4256}
-    - Class: 114
-      Script: {instanceID: 4528}
-    - Class: 114
-      Script: {instanceID: 4922}
-    - Class: 114
-      Script: {instanceID: 5300}
-    - Class: 114
-      Script: {instanceID: 5920}
-    - Class: 114
-      Script: {instanceID: 6420}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 196
-      Script: {instanceID: 0}
-    - Class: 212
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
-    Assets/Scenes/game scene.unity:
+    Assets/Scenes/Game Scene.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -159,8 +117,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 83
       Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
     - Class: 95
@@ -170,13 +126,19 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 2354}
+      Script: {instanceID: 1598}
+    - Class: 114
+      Script: {instanceID: 2530}
     - Class: 114
       Script: {instanceID: 2662}
     - Class: 114
       Script: {instanceID: 2888}
     - Class: 114
+      Script: {instanceID: 3190}
+    - Class: 114
       Script: {instanceID: 4446}
+    - Class: 114
+      Script: {instanceID: 4922}
     - Class: 114
       Script: {instanceID: 5300}
     - Class: 114
@@ -188,9 +150,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6072}
     - Class: 114
-      Script: {instanceID: 6420}
+      Script: {instanceID: 6330}
     - Class: 114
-      Script: {instanceID: 7642}
+      Script: {instanceID: 6422}
+    - Class: 114
+      Script: {instanceID: 7646}
+    - Class: 114
+      Script: {instanceID: 7764}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -217,7 +183,70 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
-    - Class: 258
+    Assets/Scenes/Main Menu.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1598}
+    - Class: 114
+      Script: {instanceID: 2224}
+    - Class: 114
+      Script: {instanceID: 2530}
+    - Class: 114
+      Script: {instanceID: 2662}
+    - Class: 114
+      Script: {instanceID: 2888}
+    - Class: 114
+      Script: {instanceID: 3190}
+    - Class: 114
+      Script: {instanceID: 4256}
+    - Class: 114
+      Script: {instanceID: 4528}
+    - Class: 114
+      Script: {instanceID: 4922}
+    - Class: 114
+      Script: {instanceID: 5300}
+    - Class: 114
+      Script: {instanceID: 5920}
+    - Class: 114
+      Script: {instanceID: 6072}
+    - Class: 114
+      Script: {instanceID: 6422}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -318,13 +347,7 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: b764680c1cffded7ab49be646a8fd722
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Player2_script
-  - hash:
-      serializedVersion: 2
-      Hash: 751e5bae2a317288c2ab58d66687092b
+      Hash: 135f94fe193ad9e3e19907a1bb260f39
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SceneLoader
@@ -618,7 +641,7 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
-      Hash: 072a78a9ed9de44e8b432a94e56a1f6d
+      Hash: 0513fae98dfe07f4623e1487c9ddc56d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player1_script
@@ -768,7 +791,7 @@ ScriptsOnlyBuild:
     className: StateGraphAsset
   - hash:
       serializedVersion: 2
-      Hash: ff995daa9d63f54d32a7b1ea18126cf3
+      Hash: 76954cb119530548511535413c267cbf
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: scoreManager
@@ -802,6 +825,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnMouseUpAsButtonMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: cc00fd4bcb76adb20cd1f0fe45bffeee
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Cloud_Timer
   - hash:
       serializedVersion: 2
       Hash: 596956ba5a4c7f862f342d4838159063
@@ -888,6 +917,12 @@ ScriptsOnlyBuild:
     className: PlayModeRunnerCallback
   - hash:
       serializedVersion: 2
+      Hash: b764680c1cffded7ab49be646a8fd722
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Player2_script
+  - hash:
+      serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -972,6 +1007,12 @@ ScriptsOnlyBuild:
     className: UnityOnParticleCollisionMessageListener
   - hash:
       serializedVersion: 2
+      Hash: d75a754a8e9248fe32fa3b4195c74a6a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GO_score
+  - hash:
+      serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
@@ -1030,8 +1071,14 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: exit_game
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main Menu.unity
-  - Assets/Scenes/game scene.unity
-  playerPath: C:/Users/Silas/OneDrive/Desktop/Fruit Sky/Fruit Sky.exe
+  - Assets/Scenes/Game Scene.unity
+  playerPath: C:/Users/Silas/OneDrive/Desktop/Fruit Sky.exe

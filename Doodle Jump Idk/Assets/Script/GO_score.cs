@@ -21,14 +21,15 @@ public class GO_score : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        yourScoreText.text = "Your Score: " + yourScore.ToString();
+        yourScoreText.text = "Your Score: " + yourScore.ToString() +" m";
     }
 
     public void getYourScore()
     {
-        yourScore = scoreManager.instance.highscore;
-        yourScoreText.text = "Your Score: " + yourScore.ToString() ;
+        yourScore = scoreManager.highscore;
+        yourScoreText.text = "Your Score: " + yourScore.ToString() + " m";
     }
+
     // Update is called once per frame
     void Update()
     {
