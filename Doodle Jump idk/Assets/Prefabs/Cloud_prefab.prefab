@@ -9641,6 +9641,7 @@ GameObject:
   - component: {fileID: 6293433405184118379}
   - component: {fileID: 6293433405184118388}
   - component: {fileID: 2454547918803033321}
+  - component: {fileID: 8702848991463917641}
   m_Layer: 0
   m_Name: Cloud_prefab
   m_TagString: Untagged
@@ -9741,3 +9742,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTime: 10
+--- !u!114 &8702848991463917641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6293433405184118389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aca37784b5ff7c4cb79674617bd056d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

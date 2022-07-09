@@ -5893,7 +5893,7 @@ GameObject:
   - component: {fileID: 472775786}
   m_Layer: 0
   m_Name: Player1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5993,6 +5993,10 @@ MonoBehaviour:
   Melone_prefab: {fileID: 5233896782128346146, guid: 419b2847f7395e740838ca0df7d54404, type: 3}
   Pfirsich_prefab: {fileID: 5233896782128346146, guid: 21eca365d37f0c749b098bdb4fc3b658, type: 3}
   Blaubeeren_prefab: {fileID: 5233896782128346146, guid: 228058fca1d191b46bb9dbf7a310c5be, type: 3}
+  Erdbeere_prefab: {fileID: 5233896782128346146, guid: e454681a37add2e40ac6f0b0f3b0fc82, type: 3}
+  Mandarine_prefab: {fileID: 5233896782128346146, guid: e96c6676c6d4fb840aeeba9d5047b3ef, type: 3}
+  Kiwi_prefab: {fileID: 5233896782128346146, guid: dfaeb4ecb825f9245af0dcab190899c7, type: 3}
+  Brombeere_prefab: {fileID: 5233896782128346146, guid: e7010bb37d96d2547a7552ff211d9fc5, type: 3}
   Game_Over_Screen: {fileID: 1810664627}
   Pause_Screen: {fileID: 846063913}
   _speed: 5
@@ -6650,9 +6654,10 @@ GameObject:
   - component: {fileID: 813880544}
   - component: {fileID: 813880541}
   - component: {fileID: 813880540}
+  - component: {fileID: 813880547}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: Untagged
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6753,6 +6758,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -177.344, z: 0}
+--- !u!114 &813880547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813880539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 936d5e0cae1f0ce4fb275b006478c178, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 5
+  RB: {fileID: 813880541}
 --- !u!1 &846063913
 GameObject:
   m_ObjectHideFlags: 0

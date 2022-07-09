@@ -10,6 +10,10 @@ public class Player1_script : MonoBehaviour
     [SerializeField] private GameObject Melone_prefab;
     [SerializeField] private GameObject Pfirsich_prefab;
     [SerializeField] private GameObject Blaubeeren_prefab;
+    [SerializeField] private GameObject Erdbeere_prefab;
+    [SerializeField] private GameObject Mandarine_prefab;
+    [SerializeField] private GameObject Kiwi_prefab;
+    [SerializeField] private GameObject Brombeere_prefab;
 
     //Sreen Layers 
     public GameObject Game_Over_Screen;
@@ -109,7 +113,7 @@ public class Player1_script : MonoBehaviour
             //Fr�chte erzeugen
             if (steps_height % 10 == 0 && melonenlock == false)
             {
-                int fruitNr = Random.Range(0, 3);
+                int fruitNr = Random.Range(0, 7);
 
 
                 if (fruitNr == 0)
@@ -125,6 +129,26 @@ public class Player1_script : MonoBehaviour
                 if (fruitNr == 2)
                 {
                     Instantiate(Blaubeeren_prefab, new Vector3(xPos, steps_height + 14f, 0f), Quaternion.identity);
+                    melonenlock = true;
+                }
+                if (fruitNr == 3)
+                {
+                    Instantiate(Brombeere_prefab, new Vector3(xPos, steps_height + 14f, 0f), Quaternion.identity);
+                    melonenlock = true;
+                }
+                if (fruitNr == 4)
+                {
+                    Instantiate(Mandarine_prefab, new Vector3(xPos, steps_height + 14f, 0f), Quaternion.identity);
+                    melonenlock = true;
+                }
+                if (fruitNr == 5)
+                {
+                    Instantiate(Kiwi_prefab, new Vector3(xPos, steps_height + 14f, 0f), Quaternion.identity);
+                    melonenlock = true;
+                }
+                if (fruitNr == 6)
+                {
+                    Instantiate(Erdbeere_prefab, new Vector3(xPos, steps_height + 14f, 0f), Quaternion.identity);
                     melonenlock = true;
                 }
 
