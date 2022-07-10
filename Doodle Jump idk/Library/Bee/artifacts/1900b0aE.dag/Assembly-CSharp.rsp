@@ -366,6 +366,7 @@
 "Assets/Script/GO_score.cs"
 "Assets/Script/Player1_script.cs"
 "Assets/Script/Player2_script.cs"
+"Assets/Script/Rotten_Fruit.cs"
 "Assets/Script/SceneLoader.cs"
 "Assets/Script/Scene_Loader2.cs"
 "Assets/Script/scoreManager.cs"

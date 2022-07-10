@@ -12,7 +12,7 @@ public class fruit : MonoBehaviour
 
         if (playerInventory != null)
         {
-            playerInventory.MelonCollected();
+            
             
             gameObject.SetActive(false);
             

@@ -13,7 +13,11 @@ public class scoreManager : MonoBehaviour
     public TMP_Text scoreText;
     public TMP_Text heightText;
     public TMP_Text yourScoreText;
+    public TMP_Text LivesText;
+
     public TMP_Text FLAG;// testing purposes: insert "scoreManager.instance.raiseFlag();" to be notified when something happens
+
+    public GameObject Game_Over_Screen;
 
     private void Awake()
     {
@@ -24,6 +28,9 @@ public class scoreManager : MonoBehaviour
     public int fruits = 0;
     int height = 0;
     public static int highscore = 0;
+
+
+    int lives=3;
     
     
     // Start is called before the first frame update
@@ -39,6 +46,12 @@ public class scoreManager : MonoBehaviour
         fruits += 1;
         scoreText.text = fruits.ToString() + " Fruits";
     }
+
+    public void ScoreUpdate()
+    {
+        scoreText.text = fruits.ToString() + " Fruits";
+    }
+
     public void changeHeight(int y_pos)
     {
         height = y_pos;
@@ -60,7 +73,28 @@ public class scoreManager : MonoBehaviour
         highscoreText.text = "Highscore: " + highscore.ToString() + " m";
     }
 
-    
+    public void TakeDamage()
+    {
+        lives --;
+        LivesText.text = "Lives: " + lives.ToString();
+        if (lives ==0)
+        {
+            Time.timeScale = 0;
+            Game_Over_Screen.gameObject.SetActive(true);
+        }
+            
+    }
+
+    public int getFruit()
+    {
+        return fruits;
+    }
+    public void writeFruit()
+    {
+        fruits = fruits-1;
+    }
+
+
     // Update is called once per frame
     void Update()
     {

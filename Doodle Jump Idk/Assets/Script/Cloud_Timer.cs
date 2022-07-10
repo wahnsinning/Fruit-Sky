@@ -13,7 +13,7 @@ public class Cloud_Timer : MonoBehaviour
 
         if (targetTime <= 0.0f)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 }

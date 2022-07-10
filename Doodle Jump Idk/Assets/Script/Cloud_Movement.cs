@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Cloud_Movement : MonoBehaviour
 {
-    float speed = 10.0f;
+    public float speed = 10.0f;
 
     // Update is called once per frame
     void Update()
@@ -12,8 +12,8 @@ public class Cloud_Movement : MonoBehaviour
         transform.position = transform.position + new Vector3(speed * Time.deltaTime, 0);
 
         if (transform.position.x >= 14)
-            speed = -10;
+            speed *= -1;
         if (transform.position.x <= -14)
-            speed = 10;
+            speed *= -1;
     }
 }
