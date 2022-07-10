@@ -359,6 +359,7 @@
 "Assets/Script/AudioManager.cs"
 "Assets/Script/Camera_Movement_script.cs"
 "Assets/Script/Cloud_Collider.cs"
+"Assets/Script/Cloud_Movement.cs"
 "Assets/Script/Cloud_Timer.cs"
 "Assets/Script/exit_game.cs"
 "Assets/Script/fruit.cs"
@@ -366,6 +367,7 @@
 "Assets/Script/Player1_script.cs"
 "Assets/Script/Player2_script.cs"
 "Assets/Script/SceneLoader.cs"
+"Assets/Script/Scene_Loader2.cs"
 "Assets/Script/scoreManager.cs"
 -langversion:9.0
 

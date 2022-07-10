@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Player1_script : MonoBehaviour 
 {
     [SerializeField] private GameObject Cloud_prefab;
+    [SerializeField] private GameObject Cloud_prefab1;
     [SerializeField] private GameObject Melone_prefab;
     [SerializeField] private GameObject Pfirsich_prefab;
     [SerializeField] private GameObject Blaubeeren_prefab;
@@ -18,6 +19,7 @@ public class Player1_script : MonoBehaviour
     //Sreen Layers 
     public GameObject Game_Over_Screen;
     public GameObject Pause_Screen;
+    
 
     // VARIABLES
     [SerializeField]
@@ -98,18 +100,34 @@ public class Player1_script : MonoBehaviour
             ResumeGame();
             Pause_Screen.gameObject.SetActive(false);
         }
+        // Cocktail einsetzen
+        if (Input.GetKeyDown("space"))
+        {
+            //scoreManager.fruits -= 10;
+        }
     }
 
     void Objects()
-    { 
+    {
+
+
+
         //Neue Wolke
         if (transform.position.y > steps_height)
         {
             xPos = Random.Range(-15, 15);
 
-            Instantiate(Cloud_prefab, new Vector3(xPos, steps_height+ 16, 0), Quaternion.identity);
-            steps_height = steps_height + 4;
-
+            if (steps_height > 100)
+            { 
+                Instantiate(Cloud_prefab, new Vector3(xPos, steps_height + 16, 0), Quaternion.identity);
+                steps_height = steps_height + 4;
+            }  
+            
+            if (steps_height < 100)
+            {
+                Instantiate(Cloud_prefab1, new Vector3(xPos, steps_height + 16, 0), Quaternion.identity);
+                steps_height = steps_height + 4;
+            }
             //Fr�chte erzeugen
             if (steps_height % 10 == 0 && melonenlock == false)
             {
@@ -154,10 +172,10 @@ public class Player1_script : MonoBehaviour
 
             }
         }
-
         
 
-        if (steps_height % 10 != 0)
+
+            if (steps_height % 10 != 0)
         {
             melonenlock = false;
         }

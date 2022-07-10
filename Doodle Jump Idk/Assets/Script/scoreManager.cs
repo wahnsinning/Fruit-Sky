@@ -21,7 +21,7 @@ public class scoreManager : MonoBehaviour
     }
 
     string flag = "";
-    int melons = 0;
+    public int fruits = 0;
     int height = 0;
     public static int highscore = 0;
     
@@ -29,15 +29,15 @@ public class scoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        scoreText.text = "Fruits: " + melons.ToString();
+        scoreText.text = "Fruits: " + fruits.ToString();
         heightText.text = "Height: " + height.ToString()+ " m";
         highscoreText.text = "Highscore: " + highscore.ToString() + " m";
     }
 
     public void AddPoint()
     {
-        melons += 1;
-        scoreText.text = melons.ToString() + " Fruits";
+        fruits += 1;
+        scoreText.text = fruits.ToString() + " Fruits";
     }
     public void changeHeight(int y_pos)
     {

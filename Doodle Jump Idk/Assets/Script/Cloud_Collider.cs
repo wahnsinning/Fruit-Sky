@@ -13,7 +13,7 @@ public class Cloud_Collider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y < GameObject.FindWithTag("Player").transform.position.y || transform.position.y < GameObject.FindWithTag("Player2").transform.position.y)
+        if (transform.position.y < GameObject.FindWithTag("Player").transform.position.y)
         {
             gameObject.GetComponent<BoxCollider>().enabled = true;
         }
