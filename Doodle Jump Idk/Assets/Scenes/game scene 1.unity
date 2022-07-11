@@ -6125,7 +6125,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 458256888}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.96577555
   m_Height: 1.9315509
   m_Direction: 1
@@ -6159,6 +6159,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cloud_prefab: {fileID: 6293433405184118389, guid: 0b1af15caa1454ac1be856c4cc9ca55d, type: 3}
+  Cloud_prefab1: {fileID: 6293433405184118389, guid: 37645ec0c1603184194c2d38721ab56f, type: 3}
+  Cloud_prefab2: {fileID: 6293433405184118389, guid: 03d456aae90b358429ba65b88296697c, type: 3}
+  Cloud_prefab3: {fileID: 6293433405184118389, guid: 8d6e2ea32a793c64797c24f2c530d813, type: 3}
+  Cloud_prefab4: {fileID: 6293433405184118389, guid: f1f8933ff51046b49aa55486ba47d248, type: 3}
+  Cloud_prefab5: {fileID: 6293433405184118389, guid: 19e83438d96db3c4bbb7c42b2c2d2ecd, type: 3}
+  Cloud_prefab6: {fileID: 6293433405184118389, guid: 1fd40b82e1240944c8595012678850d4, type: 3}
+  Cloud_prefab7: {fileID: 6293433405184118389, guid: 60d55b325dce14d4da200fa87ce3983a, type: 3}
+  Cloud_prefab8: {fileID: 6293433405184118389, guid: aa31ca5622da8d247bcb84df68ed4371, type: 3}
+  Cloud_prefab9: {fileID: 6293433405184118389, guid: ead9407fbc3717943aea86b07354b440, type: 3}
+  Cloud_prefab10: {fileID: 6293433405184118389, guid: 66aa2d10416846041acb33dc75a35256, type: 3}
+  Cloud_prefab11: {fileID: 6293433405184118389, guid: d74bb5302b7d21f4fa1c29576b8681ae, type: 3}
   Melone_prefab: {fileID: 5233896782128346146, guid: 419b2847f7395e740838ca0df7d54404, type: 3}
   Pfirsich_prefab: {fileID: 5233896782128346146, guid: 21eca365d37f0c749b098bdb4fc3b658, type: 3}
   Blaubeeren_prefab: {fileID: 5233896782128346146, guid: 228058fca1d191b46bb9dbf7a310c5be, type: 3}
@@ -6166,11 +6177,14 @@ MonoBehaviour:
   Mandarine_prefab: {fileID: 5233896782128346146, guid: e96c6676c6d4fb840aeeba9d5047b3ef, type: 3}
   Kiwi_prefab: {fileID: 5233896782128346146, guid: dfaeb4ecb825f9245af0dcab190899c7, type: 3}
   Brombeere_prefab: {fileID: 5233896782128346146, guid: e7010bb37d96d2547a7552ff211d9fc5, type: 3}
+  Apple_prefab: {fileID: 275184257068010393, guid: 6899a5cb49479c2469196e2e00de2981, type: 3}
+  Banana_prefab: {fileID: 1328505940883030758, guid: 71cc4a99c9a5d9845a50eb8ac98b4d47, type: 3}
   Game_Over_Screen: {fileID: 1545470435}
   Pause_Screen: {fileID: 718803580}
   _speed: 5
   RB: {fileID: 458256890}
   steps_height: 0
+  targetTime: 5
 --- !u!114 &458256892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6770,7 +6784,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 902315de76cb957cbbc8f27d11639b7a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6574e3f886acfc3448ea26ec0a9e1524, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -18786,7 +18800,9 @@ MonoBehaviour:
   scoreText: {fileID: 807430239}
   heightText: {fileID: 329089096}
   yourScoreText: {fileID: 0}
+  LivesText: {fileID: 0}
   FLAG: {fileID: 96215986}
+  Game_Over_Screen: {fileID: 0}
   fruits: 0
 --- !u!114 &2075753350
 MonoBehaviour:

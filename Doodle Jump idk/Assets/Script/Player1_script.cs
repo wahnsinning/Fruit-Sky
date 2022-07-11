@@ -51,9 +51,9 @@ public class Player1_script : MonoBehaviour
 
     public int NumberOfMelons { get; private set; }
 
-    
 
     public float targetTime = 5.0f;
+    private float timer = 0f;
 
 
     // Start is called before the first frame update
@@ -124,22 +124,10 @@ public class Player1_script : MonoBehaviour
         if (Input.GetKeyDown("space"))
 
         {
-            if (scoreManager.instance.getFruit() > 0)
+            if (scoreManager.instance.getFruit() > 9)
             {
                 scoreManager.instance.writeFruit();
-                 _jumpingSpeed = 20f;
-
-                targetTime -= Time.deltaTime;
-
-                if (targetTime <= 0.0f)
-                {
-                    timerEnded();
-                }
-
-
-
-
-
+                 _jumpingSpeed += 0.2f;
 
             }
                 
@@ -316,9 +304,5 @@ public class Player1_script : MonoBehaviour
         NumberOfMelons++;
     }
 
-    void timerEnded()
-    {
-        _jumpingSpeed = 10f;
-    }
 
 }

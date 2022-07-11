@@ -91,7 +91,7 @@ public class scoreManager : MonoBehaviour
     }
     public void writeFruit()
     {
-        fruits = fruits-1;
+        fruits = fruits-10;
     }
 
 
