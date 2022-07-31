@@ -28,6 +28,8 @@ public class Player1_script : MonoBehaviour
     [SerializeField] private GameObject Brombeere_prefab;
     [SerializeField] private GameObject Apple_prefab;
     [SerializeField] private GameObject Banana_prefab;
+    [SerializeField] private GameObject Angel_prefab;
+    [SerializeField] private GameObject Girl_prefab;
 
     //Sreen Layers 
     public GameObject Game_Over_Screen;
@@ -43,18 +45,20 @@ public class Player1_script : MonoBehaviour
     // -- time delay -- 
     private float _coolDownTimeJump = 1f;
     private float _nextJumpTime = 0f;
-
+    public int NumberOfMelons { get; private set; }
     private int xPos = 0;
-    private bool melonenlock = false;
+    public float targetTime = 5.0f;
 
+
+    //variables to inhibit redundant instantiation of objects
+    private bool melonenlock = false;
+    private bool engelLock = false;
+    private bool girlLock = false;
+
+    //variable to determine height of clouds (steps of 4)
     public float steps_height = 0;
 
-    public int NumberOfMelons { get; private set; }
-
-
-    public float targetTime = 5.0f;
-    private float timer = 0f;
-
+    //--------------------------------------------------------------------
 
     // Start is called before the first frame update
     void Start()
@@ -74,10 +78,6 @@ public class Player1_script : MonoBehaviour
         scoreManager.instance.setHighscore((int)transform.position.y +3);
         GO_score.instance.getYourScore();
         scoreManager.instance.ScoreUpdate();
-
-       
-
-
     }
     void PlayerMovement()
     {
@@ -124,20 +124,19 @@ public class Player1_script : MonoBehaviour
         if (Input.GetKeyDown("space"))
 
         {
-            if (scoreManager.instance.getFruit() > 9)
+            if (scoreManager.instance.getFruit() > 2)
             {
                 scoreManager.instance.writeFruit();
                  _jumpingSpeed += 0.2f;
 
             }
+            scoreManager.instance.setBoostScore();
                 
         }
     }
 
     void Objects()
     {
-
-
 
         //SCHWIERIGKEITSSTUFEN
         if (transform.position.y > steps_height)
@@ -199,43 +198,41 @@ public class Player1_script : MonoBehaviour
                 steps_height = steps_height + 4;
             }
             //Stufe8
-            if (steps_height > 499 && steps_height < 550)
+            if (steps_height > 399 && steps_height < 450)
             {
                 Instantiate(Cloud_prefab8, new Vector3(xPos, steps_height + 16, 0), Quaternion.identity);
                 steps_height = steps_height + 4;
             }
             //Stufe9
-            if (steps_height > 549 && steps_height < 600)
+            if (steps_height > 449 && steps_height < 500)
             {
                 Instantiate(Cloud_prefab9, new Vector3(xPos, steps_height + 16, 0), Quaternion.identity);
                 steps_height = steps_height + 4;
             }
             //Stufe10
-            if (steps_height > 599 && steps_height < 650)
+            if (steps_height > 499 && steps_height < 550)
             {
                 Instantiate(Cloud_prefab10, new Vector3(xPos, steps_height + 16, 0), Quaternion.identity);
                 steps_height = steps_height + 4;
             }
             //Stufe11
-            if (steps_height > 649)
+            if (steps_height > 549)
             {
                 Instantiate(Cloud_prefab11, new Vector3(xPos, steps_height + 16, 0), Quaternion.identity);
                 steps_height = steps_height + 4;
             }
-
-
 
             //Fr�chte erzeugen
             if (steps_height % 10 == 0 && melonenlock == false)
             {
                 int fruitNr = Random.Range(0, 9);
 
-
                 if (fruitNr == 0)
                 {
                     Instantiate(Melone_prefab, new Vector3(xPos, steps_height + 14f, 0f), Quaternion.identity);
                     melonenlock = true;
                 }
+
                 if (fruitNr == 1)
                 {
                     Instantiate(Pfirsich_prefab, new Vector3(xPos, steps_height + 14f, 0f), Quaternion.identity);
@@ -276,18 +273,40 @@ public class Player1_script : MonoBehaviour
                     Instantiate(Banana_prefab, new Vector3(xPos, steps_height + 14f, 0f), Quaternion.identity);
                     melonenlock = true;
                 }
-
             }
+
+            //Lock aufheben
+            if (steps_height % 10 != 0)
+            {
+                melonenlock = false;
+            }
+
+            //Helfer erzeugen
+            if (scoreManager.instance.getFruit() == 3 && engelLock == false)
+            {
+                Instantiate(Angel_prefab, new Vector3(xPos, steps_height + 14f, 0f), Quaternion.AngleAxis(180, Vector3.right));
+                engelLock = true;
+            }
+
+            if (scoreManager.instance.getlives() < 3   && girlLock == false)
+            {
+                Instantiate(Girl_prefab, new Vector3(xPos, steps_height + 14f, 0f), Quaternion.AngleAxis(180, Vector3.right));
+                girlLock = true;
+            }
+
+            //Lock aufheben
+            if (NumberOfMelons == 4)
+            {
+                engelLock = false;
+            }
+
         }
+
+        
         
 
-
-            if (steps_height % 10 != 0)
-        {
-            melonenlock = false;
-        }
-
     }
+
 
     private void PauseGame()
     {
@@ -304,5 +323,5 @@ public class Player1_script : MonoBehaviour
         NumberOfMelons++;
     }
 
-
+    
 }

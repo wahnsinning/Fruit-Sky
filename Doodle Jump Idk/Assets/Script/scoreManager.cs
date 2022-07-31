@@ -13,7 +13,8 @@ public class scoreManager : MonoBehaviour
     public TMP_Text scoreText;
     public TMP_Text heightText;
     public TMP_Text yourScoreText;
-    public TMP_Text LivesText;
+    public TMP_Text boostScoreText;
+    
 
     public TMP_Text FLAG;// testing purposes: insert "scoreManager.instance.raiseFlag();" to be notified when something happens
 
@@ -29,14 +30,14 @@ public class scoreManager : MonoBehaviour
     int height = 0;
     public static int highscore = 0;
 
-
+    int boostscore;
     int lives=3;
     
     
     // Start is called before the first frame update
     void Start()
     {
-        scoreText.text = "Fruits: " + fruits.ToString();
+        scoreText.text = "Fruit: " + fruits.ToString();
         heightText.text = "Height: " + height.ToString()+ " m";
         highscoreText.text = "Highscore: " + highscore.ToString() + " m";
     }
@@ -44,12 +45,12 @@ public class scoreManager : MonoBehaviour
     public void AddPoint()
     {
         fruits += 1;
-        scoreText.text = fruits.ToString() + " Fruits";
+        scoreText.text = fruits.ToString() + " Fruit";
     }
 
     public void ScoreUpdate()
     {
-        scoreText.text = fruits.ToString() + " Fruits";
+        scoreText.text = fruits.ToString() + " Fruit";
     }
 
     public void changeHeight(int y_pos)
@@ -73,16 +74,33 @@ public class scoreManager : MonoBehaviour
         highscoreText.text = "Highscore: " + highscore.ToString() + " m";
     }
 
+    public void setBoostScore()
+    {
+        boostscore++;
+        boostScoreText.text = "Cocktails bought: " + boostscore.ToString();
+    }
+
     public void TakeDamage()
     {
         lives --;
-        LivesText.text = "Lives: " + lives.ToString();
+        
+        
+        //Game Over wenn keine Leben mehr
         if (lives ==0)
         {
             Time.timeScale = 0;
             Game_Over_Screen.gameObject.SetActive(true);
         }
-            
+        //Herzen entfernen
+        if (lives==2)
+            GameObject.FindWithTag("herz2").SetActive(false);
+
+        if (lives == 1)
+            GameObject.FindWithTag("herz1").SetActive(false);
+
+        if (lives == 0)
+            GameObject.FindWithTag("herz").SetActive(false);
+
     }
 
     public int getFruit()
@@ -91,7 +109,17 @@ public class scoreManager : MonoBehaviour
     }
     public void writeFruit()
     {
-        fruits = fruits-10;
+        fruits = fruits-3;
+    }
+
+    public int getHeight()
+    {
+        return height;
+    }
+
+    public int getlives()
+    {
+        return lives;
     }
 
 

@@ -29,10 +29,10 @@ public class Camera_Movement_script : MonoBehaviour
                 transform.position = offset + new Vector3(0f, targets[0].position.y, 0f);
             }
             
-            if(targets[0].position.y <= targets[1].position.y)
-            {
-                transform.position = offset + new Vector3(0f, targets[1].position.y, 0f);
-            }
+            //if(targets[0].position.y <= targets[1].position.y)
+            //{
+            //    transform.position = offset + new Vector3(0f, targets[1].position.y, 0f);
+            //}
         }
     }
 

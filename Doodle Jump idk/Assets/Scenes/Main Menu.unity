@@ -890,7 +890,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1e855064f62860245af025929088cccd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.021
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1025,7 +1025,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1820, y: 1020}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1171,7 +1171,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d51b75e459467904cae2c6dc9b17fc67, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 77b9cceada0a3034bae457b5fd793420, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

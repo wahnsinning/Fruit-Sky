@@ -17,5 +17,10 @@ public class Cloud_Collider : MonoBehaviour
         {
             gameObject.GetComponent<BoxCollider>().enabled = true;
         }
+
+        if (transform.position.y > GameObject.FindWithTag("Player").transform.position.y)
+        {
+            gameObject.GetComponent<BoxCollider>().enabled = false;
+        }
     }
 }
