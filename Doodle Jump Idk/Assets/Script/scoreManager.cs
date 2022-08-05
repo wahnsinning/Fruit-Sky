@@ -65,6 +65,12 @@ public class scoreManager : MonoBehaviour
         FLAG.text = flag;
     }
 
+    public void lowerFlag()
+    {
+        flag = "";
+        FLAG.text = flag;
+    }
+
     public void setHighscore(int y_pos)
     {
         if (y_pos > highscore)
@@ -77,7 +83,7 @@ public class scoreManager : MonoBehaviour
     public void setBoostScore()
     {
         boostscore++;
-        boostScoreText.text = "Cocktails bought: " + boostscore.ToString();
+        boostScoreText.text = "Cocktails mixed: " + boostscore.ToString();
     }
 
     public void TakeDamage()
@@ -128,4 +134,5 @@ public class scoreManager : MonoBehaviour
     {
         
     }
+
 }

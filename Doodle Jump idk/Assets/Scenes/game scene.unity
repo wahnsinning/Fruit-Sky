@@ -6022,6 +6022,7 @@ MonoBehaviour:
   Pause_Screen: {fileID: 846063913}
   _speed: 5
   RB: {fileID: 472775785}
+  jumps_left: 2
   targetTime: 5
   steps_height: 0
 --- !u!54 &472775785
@@ -18953,7 +18954,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Cocktails bought: 0'
+  m_text: 'Cocktails mixed: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 799a3d5aa5a13a0438f1f1b85152265e, type: 2}
   m_sharedMaterial: {fileID: 178504905857762419, guid: 799a3d5aa5a13a0438f1f1b85152265e, type: 2}

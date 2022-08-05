@@ -5,7 +5,10 @@ using UnityEngine.SceneManagement;
 
 
 public class Player1_script : MonoBehaviour 
+
 {
+    public static Player1_script instance;
+
     [SerializeField] private GameObject Cloud_prefab;
     [SerializeField] private GameObject Cloud_prefab1;
     [SerializeField] private GameObject Cloud_prefab2;
@@ -45,6 +48,7 @@ public class Player1_script : MonoBehaviour
     // -- time delay -- 
     private float _coolDownTimeJump = 1f;
     private float _nextJumpTime = 0f;
+    public int jumps_left =2;
     public int NumberOfMelons { get; private set; }
     private int xPos = 0;
     public float targetTime = 5.0f;
@@ -59,6 +63,11 @@ public class Player1_script : MonoBehaviour
     public float steps_height = 0;
 
     //--------------------------------------------------------------------
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -94,10 +103,11 @@ public class Player1_script : MonoBehaviour
         }
 
         // JUMPING
-        if (Input.GetKeyDown("up") && _nextJumpTime < Time.time)
+        if (Input.GetKeyDown("up") && _nextJumpTime < Time.time && jumps_left > 0)
         {
             RB.velocity += new Vector3(0f, _jumpingSpeed, 0f);
             _nextJumpTime = Time.time + _coolDownTimeJump;
+            jumps_left--;
         }
 
         //Falling too deep
@@ -321,6 +331,11 @@ public class Player1_script : MonoBehaviour
     public void MelonCollected()
     {
         NumberOfMelons++;
+    }
+
+    public void ResetJumps()
+    {
+        jumps_left=2;
     }
 
     
