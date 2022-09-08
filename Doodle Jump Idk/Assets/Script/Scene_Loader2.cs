@@ -7,4 +7,10 @@ public class Scene_Loader2 : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        print("Restart Button Working");
+    }
 }

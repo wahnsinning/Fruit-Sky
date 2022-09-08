@@ -327,6 +327,7 @@
 "Assets/Script/SceneLoader.cs"
 "Assets/Script/Scene_Loader2.cs"
 "Assets/Script/scoreManager.cs"
+"Assets/Script/sike.cs"
 -langversion:9.0
 
 /deterministic

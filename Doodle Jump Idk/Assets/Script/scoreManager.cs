@@ -18,7 +18,10 @@ public class scoreManager : MonoBehaviour
 
     public TMP_Text FLAG;// testing purposes: insert "scoreManager.instance.raiseFlag();" to be notified when something happens
 
-    public GameObject Game_Over_Screen;
+    public GameObject Pause_Screen;
+    public GameObject Game_Over_Title;
+    public GameObject Pause_Title;
+    public GameObject Resume_Button;
 
     private void Awake()
     {
@@ -28,7 +31,9 @@ public class scoreManager : MonoBehaviour
     string flag = "";
     public int fruits = 0;
     int height = 0;
-    public static int highscore = 0;
+    public static int globalhighscore = 0;
+
+    public int highscore = 0;
 
     int boostscore;
     int lives=3;
@@ -39,7 +44,7 @@ public class scoreManager : MonoBehaviour
     {
         scoreText.text = "Fruit: " + fruits.ToString();
         heightText.text = "Height: " + height.ToString()+ " m";
-        highscoreText.text = "Highscore: " + highscore.ToString() + " m";
+        highscoreText.text = "Highscore: " + globalhighscore.ToString() + " m";
     }
 
     public void AddPoint()
@@ -77,7 +82,13 @@ public class scoreManager : MonoBehaviour
         {
             highscore = y_pos;
         }
-        highscoreText.text = "Highscore: " + highscore.ToString() + " m";
+        
+
+        if (y_pos > globalhighscore)
+        {
+            globalhighscore = y_pos;
+        }
+        highscoreText.text = "Highscore: " + globalhighscore.ToString() + " m";
     }
 
     public void setBoostScore()
@@ -95,7 +106,11 @@ public class scoreManager : MonoBehaviour
         if (lives ==0)
         {
             Time.timeScale = 0;
-            Game_Over_Screen.gameObject.SetActive(true);
+            Pause_Screen.gameObject.SetActive(true);
+            Pause_Title.gameObject.SetActive(false);
+            Game_Over_Title.gameObject.SetActive(true);
+            Resume_Button.gameObject.SetActive(false);
+
         }
         //Herzen entfernen
         if (lives==2)
@@ -126,6 +141,16 @@ public class scoreManager : MonoBehaviour
     public int getlives()
     {
         return lives;
+    }
+
+    public int gethighscore()
+    {
+        return highscore;
+    }
+
+    public int getglobalhighscore()
+    {
+        return globalhighscore;
     }
 
 

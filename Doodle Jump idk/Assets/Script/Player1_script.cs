@@ -33,10 +33,13 @@ public class Player1_script : MonoBehaviour
     [SerializeField] private GameObject Banana_prefab;
     [SerializeField] private GameObject Angel_prefab;
     [SerializeField] private GameObject Girl_prefab;
+    [SerializeField] private GameObject FruitGirl_prefab;
 
-    //Sreen Layers 
-    public GameObject Game_Over_Screen;
+    //Sreen Components 
     public GameObject Pause_Screen;
+    public GameObject Game_Over_Title;
+    public GameObject Pause_Title;
+    public GameObject Resume_Button;
     
 
     // VARIABLES
@@ -58,6 +61,7 @@ public class Player1_script : MonoBehaviour
     private bool melonenlock = false;
     private bool engelLock = false;
     private bool girlLock = false;
+    private bool fruitgirlLock = false;
 
     //variable to determine height of clouds (steps of 4)
     public float steps_height = 0;
@@ -74,7 +78,6 @@ public class Player1_script : MonoBehaviour
     {
         Time.timeScale = 1;
         transform.position = new Vector3(x:1f, y:0f, z:0f);
-        Game_Over_Screen.gameObject.SetActive(false);
         Pause_Screen.gameObject.SetActive(false);
     }
 
@@ -110,11 +113,14 @@ public class Player1_script : MonoBehaviour
             jumps_left--;
         }
 
-        //Falling too deep
+        //GAME OVER BY FALLING
         if (transform.position.y < -13)
         {
             Time.timeScale = 0;
-            Game_Over_Screen.gameObject.SetActive(true);
+            Pause_Screen.gameObject.SetActive(true);
+            Game_Over_Title.gameObject.SetActive(true);
+            Pause_Title.gameObject.SetActive(false);
+            Resume_Button.gameObject.SetActive(false);
         }
 
         //PAUSE
@@ -122,6 +128,9 @@ public class Player1_script : MonoBehaviour
         {
             PauseGame();
             Pause_Screen.gameObject.SetActive(true);
+            Game_Over_Title.gameObject.SetActive(false);
+            Pause_Title.gameObject.SetActive(true);
+            Resume_Button.gameObject.SetActive(true);
         }
 
         //RESUME
@@ -302,6 +311,12 @@ public class Player1_script : MonoBehaviour
             {
                 Instantiate(Girl_prefab, new Vector3(xPos, steps_height + 14f, 0f), Quaternion.AngleAxis(180, Vector3.right));
                 girlLock = true;
+            }
+
+            if (scoreManager.instance.getHeight()  > 1000   && fruitgirlLock == false)
+            {
+                Instantiate(FruitGirl_prefab, new Vector3(xPos, steps_height + 14f, 0f), Quaternion.AngleAxis(180, Vector3.right));
+                fruitgirlLock = true;
             }
 
             //Lock aufheben

@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - HUD
+  - Player2
+  - herz1
+  - herz
+  - herz2
+  - Cl_Pf
+  - Angel
   layers:
   - Default
   - TransparentFX
@@ -11,7 +18,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - UI+
   - 
   - 
   - 
